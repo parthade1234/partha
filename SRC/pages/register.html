@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="./assets/css/styles.css" />
 
     <title>Partha De</title>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js"></script>
 </head>
 
 <body>
@@ -47,12 +50,12 @@
 
                             <div>
                                 <label for="number" class="login__label">Contact Number</label>
-                                <input class="login__input" type="number" id="cnumber"
+                                <input class="login__input" type="number" id="number"
                                     placeholder="Enter your contact number" required />
                             </div>
 
                             <div>
-                                <label for="radio" class="login__label">Gender</label>
+                                <label for="radio" id="gender" class="login__label">Gender</label>
                                 <input type="radio" name="gender" value="male"> Male
                                  <input type="radio" name="gender" value="female"> Female   
                             </div>
@@ -78,7 +81,7 @@
 
                     <div>
                         <div class="login__buttons">
-                            <button class="login__button">Register</button>
+                            <button type="submit" class="login__button">Register</button>
                             <a href="login.html" class="login__button login__button-ghost">Log In</a>
                         </div>
 
@@ -91,6 +94,55 @@
 
     <!--=============== MAIN JS ===============-->
     <script src="./assets/js/main.js"></script>
+    <script>
+    // Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyDKAn2JTbn4J3_IG1d3wH0sc9Bwt_0e1ik",
+  authDomain: "blog-ffcd7.firebaseapp.com",
+  projectId: "blog-ffcd7",
+  storageBucket: "blog-ffcd7.firebasestorage.app",
+  messagingSenderId: "227819923511",
+  appId: "1:227819923511:web:f31fb205c5a027c70777b2",
+  measurementId: "G-RLESD98KGH"
+};
+
+    // Initialize Firebase
+    const app = firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    // Register User Function
+    document.getElementById('registerForm').addEventListener('submit', async function(event) {
+      event.preventDefault();
+
+      // Get user data
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const contact = document.getElementById('contact').value;
+      const gender = document.getElementById('gender').value;
+      const password = document.getElementById('password').value;
+
+      try {
+        // Create user with Firebase Authentication
+        const userCredential = await auth.createUserWithEmailAndPassword(email, password);
+        const user = userCredential.user;
+
+        // Save additional data (name, contact, gender) in Firestore
+        await db.collection('users').doc(user.uid).set({
+          name: name,
+          email: email,
+          contact: contact,
+          gender: gender
+        });
+
+        alert('Registration successful!');
+        // Optionally, redirect to another page
+      } catch (error) {
+        console.error('Error during registration:', error);
+        alert('Registration failed: ' + error.message);
+      }
+    });
+  </script>
 </body>
 
 </html>
