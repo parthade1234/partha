@@ -16,7 +16,7 @@ document.addEventListener('paste', function(e) {
 // Disable right-click
 document.addEventListener('contextmenu', function(e) {
     e.preventDefault();
-    alert("Right-click is disabled.");
+    alert("Cut, Copy & Paste Option are disabled.");
 });
 
 // Disable keyboard shortcuts (Ctrl+C, Ctrl+X, Ctrl+V, F12, Ctrl+Shift+I, Ctrl+U)
