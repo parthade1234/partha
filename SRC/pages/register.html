@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--=============== REMIXICONS ===============-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet" />
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+
+
+    <title>Partha De</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="login">
+            <div class="login__content">
+                <img class="login__img" src="./assets/img/bg-login.png" alt="Login image" />
+
+                <form class="login__form" id="registerForm" method="post" action="./user/Database/register.php">
+                    <div>
+                        <h1 class="login__title">
+                            <span>Welcome</span> Dear..
+                        </h1>
+
+                        <p class="login__description">
+                            Welcome! Please Register yourself....
+                        </p>
+                    </div>
+
+                    <div>
+                        <div class="login__inputs">
+                            <div>
+                                <label for="name" class="login__label">Name</label>
+                                <input class="login__input" type="name" id="name" name="name"
+                                    placeholder="Enter your full name" required />
+                            </div>
+
+                            <div>
+                                <label for="email" class="login__label">Email</label>
+                                <input class="login__input" type="email" id="email" name="email"
+                                    placeholder="Enter your email address" required />
+                            </div>
+
+                            <div>
+                                <label for="number" class="login__label">Contact Number</label>
+                                <input class="login__input" type="number" id="contact_number" name="contact_number"
+                                    placeholder="Enter your contact number" required />
+                            </div>
+
+                            <div>
+                                <label for="radio" class="login__label">Gender</label>
+                                <input type="radio" name="gender" value="male" required> Male
+                                <input type="radio" name="gender" value="female" required> Female
+                            </div>
+
+                            <div>
+                                <label for="password" class="login__label">Password</label>
+                                <div class="login__box">
+                                    <input class="login__input" type="password" id="password" name="password"
+                                        placeholder="Enter your password" required />
+                                    <i class="ri-eye-off-line login__eye" id="input-icon"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <label for="password" class="login__label"> Confirm Password</label>
+                                <div class="login__box">
+                                    <input class="login__input" type="password" id="confirmPassword"
+                                        name="confirmPassword" placeholder="Re Enter your password" required />
+                                    </i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="login__check">
+                            <label class="login__check-label" for="check">
+                                <input class="login__check-input" type="checkbox" id="check" required />
+                                <i class="ri-check-line login__check-icon"></i>
+                                I agree to our Terms and Conditions (T&C)....
+                            </label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="login__buttons">
+                            <button class="login__button" type="submit">Register</button>
+                            <a href="login.php" class="login__button login__button-ghost">Log In</a>
+                        </div>
+
+                        <a class="login__forgot" href="forgot.html">Forgot Password?</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!--=============== MAIN JS ===============-->
+    <script src="./assets/js/main.js"></script>
+    <script>
+        document.getElementById("input-icon").addEventListener("click", function () {
+            var passwordField = document.getElementById("password");
+            var confirmPasswordField = document.getElementById("confirmPassword");
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                confirmPasswordField.type = "text";
+                this.classList.remove("ri-eye-off-line");
+                this.classList.add("ri-eye-line");
+            } else {
+                passwordField.type = "password";
+                confirmPasswordField.type = "password";
+                this.classList.remove("ri-eye-line");
+                this.classList.add("ri-eye-off-line");
+            }
+        });
+    </script>
+
+    <script src="./assets/js/password_validation.js"></script>
+    <script type="text/javascript" src="../script/disableKey.js"></script>
+</body>
+
+</html>

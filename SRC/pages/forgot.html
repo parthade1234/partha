@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--=============== REMIXICONS ===============-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet" />
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+
+    <title>Partha De</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="login">
+            <div class="login__content">
+                <img class="login__img" src="./assets/img/bg-login.png" alt="Login image" />
+
+                <form class="login__form"id="forgot_password" method="post" action="./user/Database/sentOTP.php">
+                    <div>
+                        <h1 class="login__title">
+                            <span>Welcome</span> Back
+                        </h1>
+
+                        <p class="login__description">
+                            Welcome! Please Enter email to continue.
+                        </p>
+                    </div>
+
+                    <div>
+                        <div class="login__inputs">
+                            <div>
+                                <label for="email" class="login__label">Email</label>
+                                <input class="login__input" type="email" id="email" name="email"
+                                    placeholder="Enter your email address" required />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="login__buttons">
+                            <button class="login__button" id="submit" type="submit">Send</button>
+                            <a href="login.php" class="login__button login__button-ghost">Log In</a>
+                        </div>
+
+                        <a class="login__forgot" href="register.html">Create new account</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!--=============== MAIN JS ===============-->
+    <script src="./assets/js/main.js"></script>
+    <script type="text/javascript" src="../script/disableKey.js"></script>
+</body>
+
+</html>
