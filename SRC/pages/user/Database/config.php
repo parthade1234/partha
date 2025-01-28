@@ -1,9 +1,9 @@
 
 <?php
-$host = 'localhost';  // Database host
-$dbname = 'blog'; // Database name
-$username = 'root'; // Database username
-$password = ""; // Database password
+$host = 'sql311.infinityfree.com';  // Database host
+$dbname = 'if0_37852299_blog'; // Database name
+$username = 'if0_37852299'; // Database username
+$password = "Website2024"; // Database password
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
